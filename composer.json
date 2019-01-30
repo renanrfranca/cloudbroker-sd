@@ -1,0 +1,14 @@
+{
+    "name": "renan/cloudbroker-sd",
+    "description": "Cloudbroker da disciplina de SD",
+    "type": "project",
+    "require": {
+        "mongodb/mongodb": "^1.4"
+    },
+    "authors": [
+        {
+            "name": "Renan Rossignatti de França",
+            "email": "renanrfranca@gmail.com"
+        }
+    ]
+}
