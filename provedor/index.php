@@ -1,2 +1,2 @@
 <?php
-    Bem vindo ao meu saite
+    echo "Bem vindo ao meu saite";
