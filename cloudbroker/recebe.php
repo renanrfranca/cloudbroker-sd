@@ -19,10 +19,10 @@
     if(!isset($_POST)){
         die("algo deu errado...");
     }
-
+    var_dump($_POST);
     $acutjason=json_decode($_POST);
-    
+    var_dump($acutjason);
     foreach($acutjason as $provedor){
-
+        
     }
 ?>
