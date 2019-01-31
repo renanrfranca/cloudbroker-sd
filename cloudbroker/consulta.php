@@ -1,7 +1,13 @@
 <?php 
+    require 'bd_connect.php';
     //buscar pelo objeto form
-    if(isset($_POST) && isset($_POST['cpu'])){
-        var_dump($_POST);
+    if (isset($_POST) && isset($_POST['cpu'])){
+        $filter = {  }
+        
+        $query = new MongoDB\Driver\Query($filter, ['sort' => [ 'preco' => 1], 'limit' => 5]);
+        $rows = $connect->executeQuery("heroku_phws9qjl.recursos", $query);
+
+        var_dump($rows);
     }
 ?>
 <!DOCTYPE html>
