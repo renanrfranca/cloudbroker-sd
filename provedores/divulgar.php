@@ -33,7 +33,7 @@
     //Execute the request
     $curl_result = curl_exec($ch);
 
-    //echo $jsonDataEncoded;
+    var_dump($jsonDataEncoded);
 
     var_dump($curl_result);
 
