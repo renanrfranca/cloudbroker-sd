@@ -23,7 +23,7 @@ ini_set('display_errors', 1);
     }
     */
 
-    require "bd_connect.php";
+    require_once '../vendor/autoload.php';
     $client = new MongoDB\Client("mongodb://cloudbroker:abc123@ds161529.mlab.com:61529/heroku_phws9qjl");
     $collection = $client->selectCollection("hheroku_phws9qjl", "recursos");
  
