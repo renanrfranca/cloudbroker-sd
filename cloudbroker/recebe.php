@@ -21,4 +21,5 @@
     }
 
     $acutjason=json_decode($_POST[0]);
+    var_dump($acutjason);
 ?>
