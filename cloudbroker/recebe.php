@@ -24,9 +24,9 @@ ini_set('display_errors', 1);
     */
 
     require "bd_connect.php";
-    $connect = new MongoDB\Driver\Manager("mongodb://cloudbroker:abc123@ds161529.mlab.com:61529/heroku_phws9qjl");
-    $collect = $connect->heroku_phws9qjl->recursos;
-   
+    $client = new MongoDB\Client("mongodb://cloudbroker:abc123@ds161529.mlab.com:61529/heroku_phws9qjl");
+    $collection = $client->selectCollection("hheroku_phws9qjl", "recursos");
+ 
     $data = json_decode(file_get_contents('php://input'),true);
     var_dump($data);
     
@@ -35,6 +35,6 @@ ini_set('display_errors', 1);
         echo '<br><br><br><br><br>';
        var_dump($recurso);
         $recurso['provedor'] = $provedor;
-        $collect->insert($recurso);
+        $collection->insert($recurso);
     }
 ?>
