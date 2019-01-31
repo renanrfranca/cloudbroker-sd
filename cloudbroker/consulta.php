@@ -12,13 +12,14 @@
 
             $query = new MongoDB\Driver\Query($filter, ['sort' => ['preco' => 1]]);
             //$filter = {  }
-            //$query = new MongoDB\Driver\Query($filter, ['sort' => [ 'preco' => 1], 'limit' => 5]);
+            //$query = new MongoDB\Driver\Query($filter, ['sorts://s://' => [ 'preco' => 1], 'limit' => 5]);
             $rows = $connect->executeQuery("heroku_phws9qjl.recursos", $query);
             
             if(!empty($rows)){
                 $row = $rows->toArray()[0];
                 echo "Melhor recurso disponível:";
-                echo "pid: $row->pid\n ram disp.: $row->ram\n disco disp.: $row->disk\n preco: $row->preco";
+                echo "provedor: $row->provedor\n pid: $row->pid\n ram disp.: $row->ram\n disco disp.: $row->disk\n preco: $row->preco";
+                echo '<a href="../provedores/userview.php?provedor='.$row->provedor.'&pid='.$row->pid.'.">Abrir recurso</a>';
             }
 
         }catch( MongoDB\Driver\Exception\Exception $e){
