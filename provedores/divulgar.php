@@ -13,8 +13,7 @@
     $result = $collection->find()->toArray();
     $result['provedor'] = $id;
 
-    // $url = "https://cloudbrokersd.herokuapp.com/cloudbroker/recebe.php";
-    $url = "http://ptsv2.com/t/yrpzf-1548955713/post";
+    $url = "https://cloudbrokersd.herokuapp.com/cloudbroker/recebe.php";
 
     //Initiate cURL.
     $ch = curl_init($url);
