@@ -24,7 +24,9 @@ ini_set('display_errors', 1);
     */
 
     require "bd_connect.php";
-
+    $connect = new MongoDB\Driver\Manager("mongodb://cloudbroker:abc123@ds161529.mlab.com:61529/heroku_phws9qjl");
+    $collect = $connect->heroku_phws9qjl->recursos;
+   
     $data = json_decode(file_get_contents('php://input'),true);
     var_dump($data);
     
