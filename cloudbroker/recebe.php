@@ -32,6 +32,7 @@
        var_dump($recurso);
        echo '<br><br><br><br><br>';
         if(isArray($recurso)){
+            echo 'eh hehe';
             $recurso['provedor'] = $provedor;
             $collect->insert($recurso);
         }
