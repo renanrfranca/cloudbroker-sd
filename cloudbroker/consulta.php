@@ -4,11 +4,13 @@
     if (isset($_POST) && isset($_POST['cpu'])){
         try{ 
             $filter = ['$and' =>[
-                [ 'vcpus' => ['$gte' => 1]],
-                ['ram' => ['$gte' => 8],
-                ] 
-                ]];
-            $query = new MongoDB\Driver\Query($filter);
+                [ 'vcpus' => ['$gte' => intval($_POST['cpu'])]],
+                ['ram' => ['$gte' => intval($_POST['ram'])]],
+                ['hd' => ['$gte' => intval($_POST['disk'])]],
+                ['uso' => 0]                 
+            ]];
+
+            $query = new MongoDB\Driver\Query($filter, ['sort' => ['preco' => 1]]);
             //$filter = {  }
             //$query = new MongoDB\Driver\Query($filter, ['sort' => [ 'preco' => 1], 'limit' => 5]);
             $rows = $connect->executeQuery("heroku_phws9qjl.recursos", $query);
