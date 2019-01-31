@@ -30,8 +30,8 @@ ini_set('display_errors', 1);
     
     $provedor = $data['provedor'];
     foreach($data as $recurso){
+        echo '<br><br><br><br><br>';
        var_dump($recurso);
-       echo '<br><br><br><br><br>';
         $recurso['provedor'] = $provedor;
         $collect->insert($recurso);
     }
