@@ -27,7 +27,7 @@
     echo file_get_contents('php://input');
 
     $data = json_decode(file_get_contents('php://input'),true);
-    var_dump($data);
+    //var_dump($data);
     
     $provedor = $data['provedor'];
     foreach($data as $recurso){
