@@ -15,14 +15,13 @@
         
     
     }
-*/
     if(!isset($_POST)){
         die("algo deu errado...");
     }
-    var_dump($_POST);
-    $acutjason=json_decode($_POST);
-    var_dump($acutjason);
+    */
+    $data = json_decode(file_get_contents('php://input'),true);
+    var_dump(data);
     foreach($acutjason as $provedor){
-        
+        foreach($provedor[])
     }
 ?>
