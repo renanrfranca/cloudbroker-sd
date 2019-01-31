@@ -15,11 +15,26 @@
         
     
     }
-*/
     if(!isset($_POST)){
         die("algo deu errado...");
     }
+    */
 
-    $acutjason=json_decode($_POST[0]);
-    var_dump($acutjason);
+    echo 'olá';
+
+    require "bd_connect.php";
+
+    echo file_get_contents('php://input');
+
+    $data = json_decode(file_get_contents('php://input'),true);
+    var_dump($data);
+    
+    $provedor = $data['provedor'];
+    foreach($data as $recurso){
+        var_dump($recurso);
+        if(isArray($recurso)){
+            $recurso['provedor'] = $provedor;
+            $collect->insert($recurso);
+        }
+    }
 ?>
