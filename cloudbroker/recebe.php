@@ -1,4 +1,7 @@
 <?php 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 /*
     JSON RECEBIDO DO POST VEM COM TODOS RECURSOS. Modelo:
 
@@ -20,21 +23,16 @@
     }
     */
 
-    echo 'olá';
-
     require "bd_connect.php";
 
     $data = json_decode(file_get_contents('php://input'),true);
-    //var_dump($data);
+    var_dump($data);
     
     $provedor = $data['provedor'];
     foreach($data as $recurso){
        var_dump($recurso);
        echo '<br><br><br><br><br>';
-        if(isArray($recurso)){
-            echo 'eh hehe';
-            $recurso['provedor'] = $provedor;
-            $collect->insert($recurso);
-        }
+        $recurso['provedor'] = $provedor;
+        $collect->insert($recurso);
     }
 ?>
