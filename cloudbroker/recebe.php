@@ -35,6 +35,6 @@ ini_set('display_errors', 1);
         echo '<br><br><br><br><br>';
        var_dump($recurso);
         $recurso['provedor'] = $provedor;
-        $collection->insert($recurso);
+        $collection->insertOne($recurso);
     }
 ?>
