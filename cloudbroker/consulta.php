@@ -14,8 +14,11 @@
             //$filter = {  }
             //$query = new MongoDB\Driver\Query($filter, ['sort' => [ 'preco' => 1], 'limit' => 5]);
             $rows = $connect->executeQuery("heroku_phws9qjl.recursos", $query);
-            foreach ($rows as $row) {
-                echo "$row->pid : $row->vcpus\n";
+            
+            if(!empty($rows)){
+                $row = $rows->toArray()[0];
+                echo "Melhor recurso disponível:";
+                echo "pid: $row->pid\n ram disp.: $row->ram\n disco disp.: $row->disk\n preco: $row->preco";
             }
 
         }catch( MongoDB\Driver\Exception\Exception $e){
