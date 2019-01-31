@@ -11,6 +11,7 @@
     $collection = $client->selectCollection("heroku_kqv81xxn", "provedor" . $id);
 
     $result = $collection->find()->toArray();
+    $result['provedor'] = $id;
 
     $url = "https://cloudbrokersd.herokuapp.com/cloudbroker/recebe.php";
 
@@ -32,10 +33,8 @@
     //Execute the request
     $curl_result = curl_exec($ch);
 
-    var_dump($curl_result);
-
     echo $jsonDataEncoded;
 
-    var_dump($result);
+    var_dump($curl_result);
 
     ?>
