@@ -2,12 +2,23 @@
     require 'bd_connect.php';
     //buscar pelo objeto form
     if (isset($_POST) && isset($_POST['cpu'])){
-        $filter = {  }
-        
-        $query = new MongoDB\Driver\Query($filter, ['sort' => [ 'preco' => 1], 'limit' => 5]);
-        $rows = $connect->executeQuery("heroku_phws9qjl.recursos", $query);
+        try{ 
+            $filter = ['$and' =>[
+                [ 'vcpus' => ['$gte' => 1]],
+                ['ram' => ['$gte' => 8],
+                ] 
+                ]];
+            $query = new MongoDB\Driver\Query($filter);
+            //$filter = {  }
+            //$query = new MongoDB\Driver\Query($filter, ['sort' => [ 'preco' => 1], 'limit' => 5]);
+            $rows = $connect->executeQuery("heroku_phws9qjl.recursos", $query);
+            foreach ($rows as $row) {
+                echo "$row->pid : $row->vcpus\n";
+            }
 
-        var_dump($rows);
+        }catch( MongoDB\Driver\Exception\Exception $e){
+            echo "Exception:", $e->getMessage(), "\n";
+        }
     }
 ?>
 <!DOCTYPE html>
