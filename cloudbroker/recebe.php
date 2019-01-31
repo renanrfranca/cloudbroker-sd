@@ -31,8 +31,9 @@
     
     $provedor = $data['provedor'];
     foreach($data as $recurso){
-        var_dump($recurso);
+       //var_dump($recurso);
         if(isArray($recurso)){
+            echo '<br><br><br><br><br>'
             $recurso['provedor'] = $provedor;
             $collect->insert($recurso);
         }
